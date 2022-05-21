@@ -1,0 +1,15 @@
+/*Root*/
+
+
+/*Universal Inputs*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*Body*/
+
+body {
+    background-color: yellowgreen;
+}
