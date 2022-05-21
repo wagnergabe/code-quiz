@@ -11,5 +11,35 @@
 /*Body*/
 
 body {
-    background-color: yellowgreen;
+    background-color: steelblue;
+}
+
+h1 {
+    text-align: center;
+    position: relative;
+    top: 50px;
+}
+
+.wrapper {
+    position: relative;
+    text-align: center;
+    top: 150px;
+}
+
+.wrapper p {
+    font-size: 40px;
+    margin: 10px;
+}
+
+button {
+    background-color: blue;
+    border: gold solid 4px;
+    border-radius: 3px;
+    position: relative;
+    font-size: 40px;
+    text-align: center;
+}
+
+button:hover {
+    background-color: gold;
 }
