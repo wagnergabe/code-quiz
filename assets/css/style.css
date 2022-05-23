@@ -10,8 +10,26 @@
 
 /*Body*/
 
+nav {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    font-size: 30px;
+
+}
+
 body {
     background-color: steelblue;
+}
+
+.score {
+    position: relative;
+    left: 20px;
+}
+
+.timer {
+    position: relative;
+    right: 25px;
 }
 
 h1 {
