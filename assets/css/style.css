@@ -22,12 +22,12 @@ body {
     background-color: steelblue;
 }
 
-.score {
+#score {
     position: relative;
     left: 20px;
 }
 
-.timer {
+.time {
     position: relative;
     right: 25px;
 }
@@ -56,6 +56,7 @@ button {
     position: relative;
     font-size: 40px;
     text-align: center;
+    padding: 10px;
 }
 
 button:hover {
@@ -65,4 +66,15 @@ button:hover {
 
 #questions {
     display: none;  
+    position: flex;
+    text-align: center;
+}
+
+#questions ul li {
+
+    margin:20px;
+    padding: 20px;
+    list-style: none;
+
+
   } 

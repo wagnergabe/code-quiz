@@ -11,13 +11,13 @@
 var secondsLeft = 60;
 var playerScore = 0;
 var headerEl = document.querySelector("#header")
-var timerEl = document.querySelector("p.time");
+var timeEl = document.querySelector("p.time");
 var scoreEl = document.querySelector("#score");
 var questionEl= document.querySelector("#question");
 var questionsEl = document.querySelector("#questions");
 //remember to change one of these to Trivia and not question/questions
 var welcomeEl = document.querySelector("#welcome");
-var rightOrWrong = document.querySelector("#rightOrWrong");
+var rightOrWrongEl = document.querySelector("#rightOrWrong");
 var finalEl = document.querySelector("#final");
 var initialsInput = document.querySelector("#initials");
 var highscoresEl = document. querySelector("#highscores");
@@ -31,7 +31,7 @@ var answer2Btn = document.querySelector("#answer2");
 var answer3Btn = document.querySelector("#answer3");
 var answer4Btn = document.querySelector("#answer4");
 var startBtn = document.querySelector("#start");
-var ansBtn = document.querySelectorAll("button.ansBtn");
+var answerBtn = document.querySelectorAll("button.answerBtn");
 var submitScrBtn = document.querySelector("#submit-score")
 
 //questions
@@ -41,6 +41,11 @@ var questions = [
     question: "What is an example of Camel-case?",
     answers: ["1. camelcase", "2. Camelcase", "3 camelCase", "4. Cammmmmel"],
     correctAnswer: "2"
+    },
+    {
+    question: "what Does HTML stand for?",
+    answers: ["1. Hyper-Text Markup language", "2. High-Tech Media Link", "3. Home Tab Marker Legend", "4 Harry Truman Makes Lasagna"],
+    correctAnswer: "1"
     }
 ]
 
@@ -49,13 +54,13 @@ var questions = [
 //clock
 
 function countDown() {
-    var timerEl = setInterval(function () {
+    var timerInterval = setInterval(function () {
         secondsLeft--;
-        timerEl.textContent = `Time:${secondsLeft}s`;
+        timeEl.textContent = `【┘】:${secondsLeft}s`;
 
         if (secondsLeft === 0 || questionCount === questions.length) {
             clearInterval(timerInterval);
-            questionEl.style.display = "none";
+            questionsEl.style.display = "none";
             scoreEl.textContent = secondsLeft;
             }
         }, 1000);
@@ -89,9 +94,9 @@ function setQuestion(id) {
 function checkAnswers(event) {
     event.preventDefault();
 
-    rightOrWrong.style.display = "visable";
-    let p = document.createElement("p");
-    rightOrWrong.appendChild(p);
+    rightOrWrongEl.style.display = "visable";
+    var p = document.createElement("p");
+    rightOrWrongEl.appendChild(p);
 
     setTimeout(function () {
         p.style.display = "none";
@@ -106,13 +111,17 @@ if (questions[questionCount].correctAnswer === event.target.value) {
     p.textContent = "wrong!"
 }
 
-if (questionCount < question.length) {
+if (questionCount < questions.length) {
     questionCount++;
 }
 setQuestion(questionCount);
 };
 
 startBtn.addEventListener("click", startGame);
+
+answerBtn.forEach(item => {
+    item.addEventListener("click", checkAnswers);
+})
 
 
 
