@@ -15,7 +15,7 @@
     </nav>
 
     <header>
-        <h1>The JavaScript Quiz!</h1>
+        <h1 id = "header">The JavaScript Quiz!</h1>
     </header>
 
     <!--WHEN I click the start button
@@ -23,11 +23,11 @@
 
 <!--Start Button-->
     <div class = "wrapper">
-        <div id="welcome" class = "begin"> </div>
+        <div id="welcome" class = "begin">
             <p>Put on your thinking cap, your JavaScript knowledge is about to be tested.</p>
                 <button id = "start">Let's Go!</button>
     </div>
-
+</div>
 <!--try hiding elements first, have start() make new questions visable? hidden/visable elements-->
 
 
@@ -35,7 +35,7 @@
 
   
         
-    <main class="questions">Sample question
+    <section id ="questions">Sample question
         <h2 id = "question">Trivia Question</h2>
         <ul>
             <li><button id = "answer1" value = "0" type = "button"
@@ -51,7 +51,7 @@
                 class="btn btn-succes ansBtn">Answer1</button>
             </li>
         </ul>
-    </main>
+    </section>
         <div id = "rightOrWrong"></div>
         
                 

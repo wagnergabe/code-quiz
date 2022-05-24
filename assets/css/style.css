@@ -62,6 +62,7 @@ button:hover {
     background-color: gold;
 }
 
-.questions {
+
+#questions {
     display: none;  
   } 

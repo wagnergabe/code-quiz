@@ -10,8 +10,9 @@
 //var questionCount = 0;
 var secondsLeft = 60;
 var playerScore = 0;
+var headerEl = document.querySelector("#header")
 var timerEl = document.querySelector("p.time");
-var scoreEl = document.querySelector("#player-score");
+var scoreEl = document.querySelector("#score");
 var questionEl= document.querySelector("#question");
 var questionsEl = document.querySelector("#questions");
 //remember to change one of these to Trivia and not question/questions
@@ -52,7 +53,8 @@ function countDown() {
         secondsLeft--;
         timerEl.textContent = `Time:${secondsLeft}s`;
 
-        if (secondsLeft === 0 || questionCount === question.length) {
+        if (secondsLeft === 0 || questionCount === questions.length) {
+            clearInterval(timerInterval);
             questionEl.style.display = "none";
             scoreEl.textContent = secondsLeft;
             }
@@ -62,7 +64,8 @@ function countDown() {
 //Start Game Function (God help me...)
 function startGame() {
     welcomeEl.style.display = "none";
-    questionEl.style.display = "visable";
+    headerEl.style.display = "none";
+    questionsEl.style.display = "block";
     questionCount = 0;
 
     countDown();
@@ -71,7 +74,7 @@ function startGame() {
 
 
 
-var setQuestion = function(id) {
+function setQuestion(id) {
     if(id < questions.length) {
     questionEl.textContent = questions[id].question;
     answer1Btn.textContent = questions[id].answers[0];
@@ -103,6 +106,10 @@ if (questions[questionCount].correctAnswer === event.target.value) {
     p.textContent = "wrong!"
 }
 
+if (questionCount < question.length) {
+    questionCount++;
+}
+setQuestion(questionCount);
 };
 
 startBtn.addEventListener("click", startGame);
