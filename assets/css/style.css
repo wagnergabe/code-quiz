@@ -1,63 +1,110 @@
-/*Root*/
 
+Search or jump to…
+Pull requests
+Issues
+Marketplace
+Explore
+ 
+@wagnergabe 
+MrMatcke
+/
+04-Web-APIs-Code-Quiz
+Public
+Code
+Issues
+Pull requests
+Actions
+Projects
+Wiki
+Security
+Insights
+04-Web-APIs-Code-Quiz/assets/style.css
+@MrMatcke
+MrMatcke update js
+Latest commit 226882a on Jan 12, 2021
+ History
+ 1 contributor
+82 lines (70 sloc)  1.75 KB
+   
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap');
 
-/*Universal Inputs*/
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    font-family: 'Noto Sans TC', sans-serif;
 }
 
-/*Body*/
-
-nav {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
-    font-size: 30px;
-
+/* For sticky footer - used flexbox from https://css-tricks.com/couple-takes-sticky-footer/ */
+html, body {
+    height: 100%;
 }
 
 body {
-    background-color: steelblue;
+    /* Background image CSS from https://web.dev/optimize-css-background-images-with-media-queries/*/
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    /* css so footer is at bottom of viewport */
+    display: flex;
+    flex-direction: column;
 }
 
-.score {
-    position: relative;
-    left: 20px;
+/* Main content */
+main {
+    /* css so footer is at bottom of viewport */
+    flex: 1 0 auto;
 }
 
-.timer {
-    position: relative;
-    right: 25px;
+/* Footer */
+footer {
+    /* css so footer is at bottom of viewport */
+    flex-shrink: 0;
+    font-size: .5rem;
 }
 
-h1 {
-    text-align: center;
-    position: relative;
-    top: 50px;
+/* hide sections until they are shown via the click events */
+#questions,
+#final,
+#highscores,
+#yaynay {
+    display: none;  
+  } 
+
+/* Remove bullet points from answers list */
+ul.nobullets {
+list-style-type: none;
 }
 
-.wrapper {
-    position: relative;
-    text-align: center;
-    top: 150px;
+/* Answer button styling */
+.ansBtn,
+.ansBtn:hover,
+.ansBtn:active,
+.ansBtn:focus,
+.ansBtn:active:focus {
+    box-shadow: none;
+    outline: none;
+    background-color: rgb(32, 101, 122);
 }
 
-.wrapper p {
-    font-size: 40px;
-    margin: 10px;
+/* Media queries for background image from https://web.dev/optimize-css-background-images-with-media-queries/ */
+
+/* Mobile */
+@media (max-width: 480px) {
+    body {
+        background-color: lightblue;
+    }
 }
 
-button {
-    background-color: blue;
-    border: gold solid 4px;
-    border-radius: 3px;
-    position: relative;
-    font-size: 40px;
-    text-align: center;
+/* Tablet */
+@media (min-width: 481px) and (max-width: 1024px) {
+    body {
+        background-image: url(../assets/images/markus-spiske-da7AMukpg2k-unsplash-med.jpg);
+    }
 }
 
-button:hover {
-    background-color: gold;
+/* Desktop */
+@media (min-width: 1025px) {
+    body {
+	    background-image: url(../assets/images/markus-spiske-da7AMukpg2k-unsplash-med.jpg);
+   }
 }
