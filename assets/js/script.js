@@ -17,10 +17,12 @@ var playerScore = 0;
 var questions = [
     {
     question: "What is an example of Camel-case?",
-    answers: ["1. camelcase", "2. Camelcase" "3. camelCase" "4. Cammmmmel"],
+    answers: ["1. camelcase", "2. Camelcase", "3 camelCase", "4. Cammmmmel"],
     correctAnswer: "2"
     }
 ]
+
+//source that helped format questions: https://stackoverflow.com/questions/37252041/storing-quiz-questions-in-array-of-objects
 
 //clock
 
@@ -46,8 +48,16 @@ function startQuiz() {
     setQuestion(questionCount);
 }
 
+var answer1Btn = document.querySelector("answer1");
+var ansswr2Btn = document.querySelector("answer2");
+var answer3Btn = document.querySelector("answer3");
+var answer4Btn = document.querySelector("answer4");
+
 var setQuestion = function (id) {
-    questionEl.textContent = question[id].question
+    questionEl.textContent = questions[id].question;
+    ans1Btn.textContent = question[id].answer [0];
+    ans2Btn.textContent = question[id].answer [1];
+    ans3Btn.textContent = question[id].answer [2];
+    ans4Btn.textContent = question[id].answer [3];
 }
 
-//source that helped format questions: https://stackoverflow.com/questions/37252041/storing-quiz-questions-in-array-of-objects
