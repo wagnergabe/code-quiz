@@ -8,6 +8,7 @@
 //Well aware Reddit is not a good source, but using querySelector for everything instead of getElmentById/ClassName, seems to work as needed.
 //https://www.reddit.com/r/javascript/comments/5vyf18/is_there_anything_wrong_with_using_queryselector/
 //var questionCount = 0;
+var secondsLeft = 60;
 var playerScore = 0;
 var timerEl = document.querySelector("p.time");
 var scoreEl = document.querySelector("#player-score");
@@ -15,7 +16,6 @@ var questionEl= document.querySelector("#question");
 var questionsEl = document.querySelector("#questions");
 //remember to change one of these to Trivia and not question/questions
 var welcomeEl = document.querySelector("#welcome");
-var questionEl = document.querySelector("question");
 var rightOrWrong = document.querySelector("#rightOrWrong");
 var finalEl = document.querySelector("#final");
 var initialsInput = document.querySelector("#initials");
@@ -25,11 +25,11 @@ var scoreList = [];
 
 //buttons (keeping these global since local scope seems to be causing issues)
 
-var answer1Btn = document.querySelector("answer1");
-var answer2Btn = document.querySelector("answer2");
-var answer3Btn = document.querySelector("answer3");
-var answer4Btn = document.querySelector("answer4");
-var StartBtn = document.querySelector("#start");
+var answer1Btn = document.querySelector("#answer1");
+var answer2Btn = document.querySelector("#answer2");
+var answer3Btn = document.querySelector("#answer3");
+var answer4Btn = document.querySelector("#answer4");
+var startBtn = document.querySelector("#start");
 var ansBtn = document.querySelectorAll("button.ansBtn");
 var submitScrBtn = document.querySelector("#submit-score")
 
@@ -74,10 +74,10 @@ function startGame() {
 var setQuestion = function(id) {
     if(id < questions.length) {
     questionEl.textContent = questions[id].question;
-    ans1Btn.textContent = questions[id].answers[0];
-    ans2Btn.textContent = questions[id].answers[1];
-    ans3Btn.textContent = questions[id].answers[2];
-    ans4Btn.textContent = questions[id].answers[3];
+    answer1Btn.textContent = questions[id].answers[0];
+    answer2Btn.textContent = questions[id].answers[1];
+    answer3Btn.textContent = questions[id].answers[2];
+    answer4Btn.textContent = questions[id].answers[3];
   }
 }
 
@@ -93,6 +93,19 @@ function checkAnswers(event) {
     setTimeout(function () {
         p.style.display = "none";
     }, 1000);
+
+
+if (questions[questionCount].correctAnswer === event.target.value) {
+    playerScore = playerScore + 10;
+    p.textContent = "You Got It!";
+} else if (questions[questionCount].correctAnswer !==event.target.value) {
+    playerScore = playerScore - 10;
+    p.textContent = "wrong!"
 }
+
+};
+
+startBtn.addEventListener("click", startGame);
+
 
 
