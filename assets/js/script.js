@@ -45,7 +45,7 @@ var questions = [
     {
     question: "what Does HTML stand for?",
     answers: ["1. Hyper-Text Markup language", "2. High-Tech Media Link", "3. Home Tab Marker Legend", "4 Harry Truman Makes Lasagna"],
-    correctAnswer: "1"
+    correctAnswer: "0"
     }
 ]
 
