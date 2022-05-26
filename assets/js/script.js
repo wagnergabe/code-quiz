@@ -7,7 +7,7 @@
 //Well aware Reddit is not a good source, but using querySelector for everything instead of getElmentById/ClassName, seems to work as needed.
 //https://www.reddit.com/r/javascript/comments/5vyf18/is_there_anything_wrong_with_using_queryselector/
 var secondsLeft = 60;
-var playerScore = 0;
+
 
 var headerEl = document.querySelector("#header")
 var timeEl = document.querySelector("p.time");
@@ -51,7 +51,7 @@ var questions = [
     {
     question: "What special character is allowed to be use when naming variables?",
     answers: ["1. #", "2. *", "3. $", "4. @"],
-    correctAnswer: "3"
+    correctAnswer: "2"
     },
 ];
 
@@ -67,7 +67,7 @@ function countDown() {
         if (secondsLeft === 0 || questionCount === questions.length) {
             clearInterval(timerInterval);
             questionsEl.style.display = "none";
-            finalEl.style.display = "visable";
+            finalEl.style.display = "block";
             scoreEl.textContent = secondsLeft;
             }
         }, 1000);
@@ -101,7 +101,7 @@ function setQuestion(id) {
 function checkAnswers(event) {
     event.preventDefault();
 
-    rightOrWrongEl.style.display = "visable";
+    rightOrWrongEl.style.display = "block";
     var p = document.createElement("p");
     rightOrWrongEl.appendChild(p);
 
@@ -129,7 +129,7 @@ function addScore(event) {
     event.preventDefault();
 
     finalEl.style.display = "none";
-    highscoresEl.style.display = "visable";
+    highscoresEl.style.display = "block";
 
     var init = initialsInput.value.toUpperCase();
     scoreList.push({ initials: init, score: secondsLeft });
@@ -161,7 +161,7 @@ function storeScores() {
 
 function displayScores() {
 
-    let storedScoreList = JSON.parse(localStorage.getItem("scoreList"));
+    var storedScoreList = JSON.parse(localStorage.getItem("scoreList"));
 
     if (storedScoreList !== null) {
         scoreList = storedScoreList;
@@ -181,8 +181,8 @@ submitScrBtn.addEventListener("click", addScore);
 
 viewScrBtn.addEventListener("click", function () {
     if (highscoresEl.style.display === "none") {
-        highscoresEl.style.display = "visable";
-    } else if (highscoresEl.style.display === "visable") {
+        highscoresEl.style.display = "block";
+    } else if (highscoresEl.style.display === "block") {
         highscoresEl.style.display = "none";
     } else {
         return alert("Nobody here yet");
