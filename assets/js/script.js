@@ -113,6 +113,7 @@ function checkAnswers(event) {
 
 if (questions[questionCount].correctAnswer === event.target.value) {
     p.textContent = "You Got It!";
+    pla
 } else if (questions[questionCount].correctAnswer !==event.target.value) {
     secondsLeft = secondsLeft - 10;
     p.textContent = "wrong!"
@@ -181,7 +182,11 @@ submitScrBtn.addEventListener("click", addScore);
 })
 
 backBtn.addEventListener("click", function() {
-    startGame();
+    highscoresEl.style.display = "none";
+    welcomeEl.style.display = "block";
+    headerEl.style.display = "block";
+    secondsLeft = 60;
+    timeEl.textContent = `【┘】:${secondsLeft}s`;
 })
 
 viewScrBtn.addEventListener("click", function () {

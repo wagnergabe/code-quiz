@@ -99,10 +99,13 @@ button:hover {
     background-color: gold;
 }
 
+/*leaderboard and Endgame*/
+
 #highscores {
     display: none;
     text-align: center;
     font-size: 30px;
+    color:gold;
 }
 
 #view-scores {
@@ -120,12 +123,9 @@ button:hover {
     font-size: 20px;
 }
 
-
-/*leaderboard and Endgame*/
-
 #final {
     display: none;
-    text-align: center;.
+    text-align: center;
 }
 
 #initials {
@@ -138,11 +138,11 @@ button:hover {
 
 }
 
-#highscores {
-    color: gold;
-}
 
 #score-list {
     color: gold;
 }
 
+#back {
+    font-size: 20px;
+}
