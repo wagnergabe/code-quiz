@@ -41,12 +41,12 @@ var backBtn = document.querySelector("#back");
 var questions = [
     {
     question: "What is an example of Camel-case?",
-    answers: ["1. camelcase", "2. Camelcase", "3 camelCase", "4. Cammmmmel"],
+    answers: ["1. camelcase", "2. Camelcase", "3 camelCase", "4. 🐪💼"],
     correctAnswer: "2"
     },
     {
     question: "what Does HTML stand for?",
-    answers: ["1. Hyper-Text Markup language", "2. High-Tech Media Link", "3. Home Tab Marker Legend", "4 Harry Truman Makes Lasagna"],
+    answers: ["1. HyperText Markup language", "2. High-Tech Media Link", "3. Home Tab Marker Legend", "4 Harry Truman Makes Lasagna"],
     correctAnswer: "0"
     },
     {
@@ -54,11 +54,24 @@ var questions = [
     answers: ["1. #", "2. *", "3. $", "4. @"],
     correctAnswer: "2"
     },
+    {
+    question: "What word usually starts a conditional statement in JavaScript?",
+    answers: ["1. When", "2. If", "3. How", "4. Activate Conditional"],
+    correctAnswer: "1"
+    },
+    {
+    question: "What is considered a proper Boolean value?",
+    answers: ["1. 45", "2. NULL", "3. The value of a very fit ghost", "4. TRUE"],
+    correctAnswer: "3"
+    }
 ];
 
 //source that helped format questions: https://stackoverflow.com/questions/37252041/storing-quiz-questions-in-array-of-objects
 
 //clock
+
+//WHEN all questions are answered or the timer reaches 0
+//THEN the game is over
 
 function countDown() {
     var timerInterval = setInterval(function () {
@@ -75,6 +88,10 @@ function countDown() {
 }
 
 //Start Game Function 
+
+//WHEN I click the start button
+//THEN a timer starts and I am presented with a question
+
 function startGame() {
     welcomeEl.style.display = "none";
     headerEl.style.display = "none";
@@ -111,13 +128,19 @@ function checkAnswers(event) {
     }, 1000);
 
 
+//WHEN I answer a question incorrectly
+//THEN time is subtracted from the clock
+
 if (questions[questionCount].correctAnswer === event.target.value) {
     p.textContent = "You Got It!";
-    pla
+    
 } else if (questions[questionCount].correctAnswer !==event.target.value) {
     secondsLeft = secondsLeft - 10;
     p.textContent = "wrong!"
 }
+
+//WHEN I answer a question
+//THEN I am presented with another question
 
 if (questionCount < questions.length) {
     questionCount++;
@@ -126,6 +149,9 @@ setQuestion(questionCount);
 };
 
 //leaderboard
+
+//WHEN the game is over
+//THEN I can save my initials and score
 
 function addScore(event) {
     event.preventDefault();
@@ -192,6 +218,8 @@ backBtn.addEventListener("click", function() {
 viewScrBtn.addEventListener("click", function () {
     if (highscoresEl.style.display === "none") {
         highscoresEl.style.display = "block";
+        welcomeEl.style.display = "none";
+        headerEl.style.display = "none";
     } else if (highscoresEl.style.display === "block") {
         highscoresEl.style.display = "none";
     } else {
