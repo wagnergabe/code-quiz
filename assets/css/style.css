@@ -8,7 +8,7 @@
     box-sizing: border-box;
 }
 
-/*Body*/
+/*timer and score*/
 
 nav {
     display: flex;
@@ -18,9 +18,6 @@ nav {
 
 }
 
-body {
-    background-color: steelblue;
-}
 
 #score {
     position: relative;
@@ -31,6 +28,14 @@ body {
     position: relative;
     right: 25px;
 }
+
+
+/*Body*/
+
+body {
+    background-color: steelblue;
+}
+
 
 h1 {
     text-align: center;
@@ -49,36 +54,7 @@ h1 {
     margin: 10px;
 }
 
-button {
-    background-color: blue;
-    border: gold solid 4px;
-    border-radius: 3px;
-    position: relative;
-    font-size: 40px;
-    text-align: center;
-    padding: 10px;
-}
-
-button:hover {
-    background-color: gold;
-}
-
-#highscores {
-    display: none;
-}
-
-#view-scores {
-    background-color: gold;
-    font-size: 30px;
-    border: black solid 2px;
-   
-}
-
-#view-scores:hover {
-    background-color: white;
-}
-
-
+/*questions*/
 
 #questions {
     display: none;  
@@ -99,13 +75,70 @@ button:hover {
     position:absolute;
     top: 500px;
     left:50px;
+    display: none;
     
 }
 
-#final {
-    display: none;
+/*buttons*/
+
+button {
+    background-color: blue;
+    border: gold solid 4px;
+    border-radius: 3px;
+    position: relative;
+    font-size: 40px;
+    text-align: center;
+    padding: 10px;
 }
 
-#rightorWrong {
-    display: none;
+button:hover {
+    background-color: gold;
 }
+
+#highscores {
+    display: none;
+    text-align: center;
+    font-size: 30px;
+}
+
+#view-scores {
+    background-color: gold;
+    font-size: 30px;
+    border: black solid 2px;
+   
+}
+
+#view-scores:hover {
+    background-color: white;
+}
+
+#submit-score {
+    font-size: 20px;
+}
+
+
+/*leaderboard and Endgame*/
+
+#final {
+    display: none;
+    text-align: center;.
+}
+
+#initials {
+    margin-top: 25px;
+    font-size: 20px
+}
+
+#initials p {
+    font-size: 20px;
+
+}
+
+#highscores {
+    color: gold;
+}
+
+#score-list {
+    color: gold;
+}
+
