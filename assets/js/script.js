@@ -7,7 +7,6 @@
 
 //Well aware Reddit is not a good source, but using querySelector for everything instead of getElmentById/ClassName, seems to work as needed.
 //https://www.reddit.com/r/javascript/comments/5vyf18/is_there_anything_wrong_with_using_queryselector/
-//var questionCount = 0;
 var secondsLeft = 60;
 var playerScore = 0;
 var headerEl = document.querySelector("#header")
@@ -116,6 +115,51 @@ if (questionCount < questions.length) {
 }
 setQuestion(questionCount);
 };
+
+//leaderboard
+
+function addScore(event) {
+    event.preventDefault();
+
+    finalEl.style.display = "none";
+    highscoresEl.style.display = "block";
+
+    var init = initialsInput.value.toUpperCase();
+    scoreList.push({ initials: init, score: secondsLeft });
+
+
+    scoreList = scoreList.sort((a, b) => {
+        if (a.score < b.score) {
+          return 1;
+        } else {
+          return -1;
+        }
+      });
+
+    scoreListEl.innerHTML="";
+    for (var i = 0; i < scoreList.length; i++) {
+        var li = document.createElement("li");
+        li.textContent = `${scoreList[i].initials}: ${scoreList[i].score}`;
+        scoreListEl.append(li);
+    }
+
+    
+    storeScores();
+    displayScores();
+}
+
+function storeScores() {
+    localStorage.setItem("scoreList", JSON.stringify(scoreList));
+}
+
+function displayScores() {
+
+    let storedScoreList = JSON.parse(localStorage.getItem("scoreList"));
+
+    if (storedScoreList !== null) {
+        scoreList = storedScoreList;
+    }
+}
 
 startBtn.addEventListener("click", startGame);
 
