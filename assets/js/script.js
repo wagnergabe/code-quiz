@@ -19,8 +19,9 @@ var welcomeEl = document.querySelector("#welcome");
 var rightOrWrongEl = document.querySelector("#rightOrWrong");
 var finalEl = document.querySelector("#final");
 var initialsInput = document.querySelector("#initials");
-var highscoresEl = document. querySelector("#highscores");
-var scoreListEl = document.querySelector("#score-list");
+var highscoresEl = document.querySelector("#highscores");
+var scoreListEl = document.querySelector("#score-list")
+var viewScrBtn = document.querySelector("#view-scores");
 var scoreList = [];
 
 //buttons (keeping these global since local scope seems to be causing issues)
@@ -32,6 +33,9 @@ var answer4Btn = document.querySelector("#answer4");
 var startBtn = document.querySelector("#start");
 var answerBtn = document.querySelectorAll("button.answerBtn");
 var submitScrBtn = document.querySelector("#submit-score")
+
+finalEl.style.display = "none";
+highscoresEl.style.display = "none";
 
 //questions
 
@@ -60,12 +64,13 @@ function countDown() {
         if (secondsLeft === 0 || questionCount === questions.length) {
             clearInterval(timerInterval);
             questionsEl.style.display = "none";
+            finalEl.style.display = "visable";
             scoreEl.textContent = secondsLeft;
             }
         }, 1000);
 }
 
-//Start Game Function (God help me...)
+//Start Game Function 
 function startGame() {
     welcomeEl.style.display = "none";
     headerEl.style.display = "none";
@@ -122,7 +127,7 @@ function addScore(event) {
     event.preventDefault();
 
     finalEl.style.display = "none";
-    highscoresEl.style.display = "block";
+    highscoresEl.style.display = "visable";
 
     var init = initialsInput.value.toUpperCase();
     scoreList.push({ initials: init, score: secondsLeft });
@@ -167,5 +172,12 @@ answerBtn.forEach(item => {
     item.addEventListener("click", checkAnswers);
 })
 
-
-
+viewScrBtn.addEventListener("click", function () {
+    if (highscoresEl.style.display === "none") {
+        highscoresEl.style.display = "visable";
+    } else if (highscoresEl.style.display === "visable") {
+        highscoresEl.style.display = "none";
+    } else {
+        return alert("Nobody here yet");
+    }
+});
