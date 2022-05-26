@@ -112,6 +112,8 @@ button:hover {
     background-color: gold;
     font-size: 30px;
     border: black solid 2px;
+    margin-left: 20px;
+    margin-bottom: 20px;
    
 }
 
