@@ -4,11 +4,11 @@
 
 //global variables
 
-
 //Well aware Reddit is not a good source, but using querySelector for everything instead of getElmentById/ClassName, seems to work as needed.
 //https://www.reddit.com/r/javascript/comments/5vyf18/is_there_anything_wrong_with_using_queryselector/
 var secondsLeft = 60;
 var playerScore = 0;
+var questionCount = 0;
 var headerEl = document.querySelector("#header")
 var timeEl = document.querySelector("p.time");
 var scoreEl = document.querySelector("#score");
@@ -33,9 +33,10 @@ var answer4Btn = document.querySelector("#answer4");
 var startBtn = document.querySelector("#start");
 var answerBtn = document.querySelectorAll("button.answerBtn");
 var submitScrBtn = document.querySelector("#submit-score")
+var viewScrBtn = document.querySelector("#view-scores");
 
 finalEl.style.display = "none";
-highscoresEl.style.display = "none";
+
 
 //questions
 
@@ -166,10 +167,15 @@ function displayScores() {
     }
 }
 
+
+//button functions
+
 startBtn.addEventListener("click", startGame);
 
 answerBtn.forEach(item => {
     item.addEventListener("click", checkAnswers);
+
+submitScrBtn.addEventListener("click", addScore);
 })
 
 viewScrBtn.addEventListener("click", function () {
