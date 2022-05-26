@@ -34,6 +34,7 @@ var startBtn = document.querySelector("#start");
 var answerBtn = document.querySelectorAll("button.answerBtn");
 var submitScrBtn = document.querySelector("#submit-score")
 var viewScrBtn = document.querySelector("#view-scores");
+var backBtn = document.querySelector("#back");
 
 //questions
 
@@ -49,7 +50,7 @@ var questions = [
     correctAnswer: "0"
     },
     {
-    question: "What special character is allowed to be use when naming variables?",
+    question: "What special character is allowed to be used when naming variables?",
     answers: ["1. #", "2. *", "3. $", "4. @"],
     correctAnswer: "2"
     },
@@ -177,6 +178,10 @@ answerBtn.forEach(item => {
     item.addEventListener("click", checkAnswers);
 
 submitScrBtn.addEventListener("click", addScore);
+})
+
+backBtn.addEventListener("click", function() {
+    startGame();
 })
 
 viewScrBtn.addEventListener("click", function () {
