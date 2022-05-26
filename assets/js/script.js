@@ -8,7 +8,7 @@
 //https://www.reddit.com/r/javascript/comments/5vyf18/is_there_anything_wrong_with_using_queryselector/
 var secondsLeft = 60;
 var playerScore = 0;
-var questionCount = 0;
+
 var headerEl = document.querySelector("#header")
 var timeEl = document.querySelector("p.time");
 var scoreEl = document.querySelector("#score");
@@ -35,9 +35,6 @@ var answerBtn = document.querySelectorAll("button.answerBtn");
 var submitScrBtn = document.querySelector("#submit-score")
 var viewScrBtn = document.querySelector("#view-scores");
 
-finalEl.style.display = "none";
-
-
 //questions
 
 var questions = [
@@ -50,8 +47,13 @@ var questions = [
     question: "what Does HTML stand for?",
     answers: ["1. Hyper-Text Markup language", "2. High-Tech Media Link", "3. Home Tab Marker Legend", "4 Harry Truman Makes Lasagna"],
     correctAnswer: "0"
-    }
-]
+    },
+    {
+    question: "What special character is allowed to be use when naming variables?",
+    answers: ["1. #", "2. *", "3. $", "4. @"],
+    correctAnswer: "3"
+    },
+];
 
 //source that helped format questions: https://stackoverflow.com/questions/37252041/storing-quiz-questions-in-array-of-objects
 
@@ -109,10 +111,9 @@ function checkAnswers(event) {
 
 
 if (questions[questionCount].correctAnswer === event.target.value) {
-    playerScore = playerScore + 10;
     p.textContent = "You Got It!";
 } else if (questions[questionCount].correctAnswer !==event.target.value) {
-    playerScore = playerScore - 10;
+    secondsLeft = secondsLeft - 10;
     p.textContent = "wrong!"
 }
 

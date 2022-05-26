@@ -63,10 +63,15 @@ button:hover {
     background-color: gold;
 }
 
+#highscores {
+    display: none;
+}
+
 #view-scores {
     background-color: gold;
     font-size: 30px;
     border: black solid 2px;
+    display: none;
 }
 
 #view-scores:hover {
@@ -94,4 +99,13 @@ button:hover {
     position:absolute;
     top: 500px;
     left:50px;
+    
+}
+
+#final {
+    display: none;
+}
+
+#rightorWrong {
+    display: none;
 }
